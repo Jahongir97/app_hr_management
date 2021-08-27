@@ -1,0 +1,30 @@
+package uz.pdp.app_hr_management.payload;
+
+import lombok.Data;
+import org.hibernate.validator.constraints.Length;
+
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.util.Set;
+
+@Data
+public class RegisterDto {
+
+    @NotNull
+    @Size(min = 3, max = 50)
+    private String firstName;
+
+    @NotNull
+    @Length(min = 3, max = 50)
+    private String lastName;
+
+    @NotNull
+    @Email
+    private String email;
+
+
+
+    @Size(min = 2, max = 3)
+    private Set<Integer> rolesId;
+}
